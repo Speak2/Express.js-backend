@@ -1,0 +1,9 @@
+{
+    "development": {
+      "user": "postgres",
+      "host": "localhost",
+      "database": "hotel_management",
+      "password": "p@stgress",
+      "port": 5433
+    }
+  }
