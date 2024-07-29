@@ -21,6 +21,7 @@ This is the backend service for Airbnb_clone, designed to handle API requests, m
    Navigate to client directory and install backend dependencies using npm
 
    ```
+   npm init -y
    npm install express pg multer cors
    ```
  
