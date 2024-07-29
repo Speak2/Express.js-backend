@@ -21,7 +21,6 @@ This is the backend service for Airbnb_clone, designed to handle API requests, m
    Navigate to client directory and install backend dependencies using npm
 
    ```
-   npm init -y
    npm install express pg multer cors
    ```
  
@@ -30,22 +29,30 @@ This is the backend service for Airbnb_clone, designed to handle API requests, m
 
     navigate to config folder and create the database.json file
     using client database user login,password and port address
-   
-   
 
-4. **Run project:**
-   
-   - Open terminal, navigate to back-end directory and run this command to start backend server
-   ```
-       npm start
-   ```
+    - Create a new PostgreSQL database:
 
+     ```sql
+     CREATE DATABASE hotel_management;
+     ```
+
+    - Update the database configuration in `db.js`:
+
+     ```json     
+    "development": {
+      "user": "postgres",
+      "host": "localhost",
+      "database": "hotel_management",
+      "password": "p@stgress",
+      "port": 5433
+    }
+    ```
+     
 5. **Create the database:**
 
     using the following sql command create two tables on the database to work with the backend
-  ```
-    -- Create the hotels table
 
+  ```sql
     CREATE TABLE hotels (
     slug VARCHAR(255) PRIMARY KEY,
     images BYTEA[],
@@ -63,9 +70,8 @@ This is the backend service for Airbnb_clone, designed to handle API requests, m
     host_image BYTEA,
     co_host_images BYTEA[]
 );
-
--- Create the updated rooms table
-
+```
+```sql
     CREATE TABLE rooms (
     hotel_slug VARCHAR(255) REFERENCES hotels(slug),
     room_slug VARCHAR(255),
@@ -74,8 +80,16 @@ This is the backend service for Airbnb_clone, designed to handle API requests, m
     bedroom_count INTEGER,
     PRIMARY KEY (hotel_slug, room_slug)
 );
+```
+   
+
+5. **Run project:**
+   
+   - Open terminal, navigate to back-end directory and run this command to start backend server
    ```
- 
+       npm start
+   ```
+
 
 ## Features
 
